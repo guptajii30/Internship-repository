@@ -1,0 +1,199 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('/hero-background.jpg') center/cover no-repeat scroll;
+  position: relative;
+  overflow: hidden;
+  padding-top: 165px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0;
+  padding: 4rem 4rem 4rem 48px;
+  position: relative;
+  z-index: 1;
+}
+
+.content {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: left;
+  color: white;
+}
+
+.headline {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  line-height: 1.15;
+  animation: fadeInUp 0.8s ease;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  text-align: left;
+  max-width: 680px;
+  color: #FFFFFF;
+}
+
+.subheadline {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+  color: #E5E7EB;
+  animation: fadeInUp 0.8s ease 0.2s backwards;
+  max-width: 680px;
+  text-align: left;
+  font-weight: 400;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+.ctaSection {
+  margin-bottom: 3rem;
+  animation: fadeInUp 0.8s ease 0.4s backwards;
+}
+
+.primaryActions {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.btnPrimary {
+  padding: 1rem 2.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: -0.01em;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: #e10600;
+  color: white;
+  box-shadow: 0 8px 20px rgba(225, 6, 0, 0.3);
+}
+
+.divider {
+  width: 1px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.secondaryContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
+
+.btnPrimary:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(225, 6, 0, 0.4);
+}
+
+.btnPrimary:focus {
+  outline: 2px solid #e10600;
+  outline-offset: 2px;
+}
+
+.btnPrimary:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(225, 6, 0, 0.3);
+}
+
+.downloadLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #e10600;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+.downloadLink:hover {
+  color: #b30000;
+  transform: translateY(-2px);
+}
+
+.downloadLink:focus {
+  outline: 2px solid #e10600;
+  outline-offset: 2px;
+}
+
+.downloadLink:active {
+  transform: translateY(0);
+}
+
+.downloadIcon {
+  transition: all 0.3s ease;
+}
+
+.downloadLink:hover .downloadIcon {
+  transform: translateY(2px);
+}
+
+.batchInfo {
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.redText {
+  color: #e10600;
+  font-weight: 400;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .headline {
+    font-size: 2rem;
+  }
+
+  .subheadline {
+    font-size: 1rem;
+  }
+
+  .primaryActions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .divider {
+    display: none;
+  }
+
+  .secondaryContent {
+    margin-top: 1rem;
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .statItem {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .statText {
+    text-align: center;
+  }
+}

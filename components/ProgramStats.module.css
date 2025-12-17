@@ -1,0 +1,103 @@
+.infoBar {
+  display: flex;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem 3rem;
+  margin-top: -30px;
+  margin-bottom: 3rem;
+  animation: fadeInUp 0.8s ease 0.6s backwards;
+  position: relative;
+  z-index: 10;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: all 0.3s ease;
+}
+
+.infoBar:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+}
+
+.infoColumn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding: 0 1rem;
+}
+
+.infoColumn:first-child {
+  padding-left: 0;
+}
+
+.infoColumn:last-child {
+  padding-right: 0;
+}
+
+.infoDivider {
+  width: 1px;
+  background: rgba(0, 0, 0, 0.1);
+  margin: 0 1rem;
+}
+
+.infoValue {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #e10600;
+  margin-bottom: 0.25rem;
+}
+
+.infoLabel {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #1f2937;
+  margin-bottom: 0.1rem;
+}
+
+.infoSublabel {
+  font-size: 0.8rem;
+  color: #6b7280;
+  font-weight: 400;
+}
+
+.redText {
+  color: #e10600;
+  font-weight: 400;
+}
+
+/* Emphasize the Degree Eligibility label to match other program stat emphasis */
+.infoColumn:last-child .infoLabel {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .infoBar {
+    flex-direction: column;
+    padding: 1rem;
+  }
+  
+  .infoColumn {
+    padding: 1rem 0;
+  }
+  
+  .infoDivider {
+    width: 100%;
+    height: 1px;
+    margin: 0.5rem 0;
+  }
+}

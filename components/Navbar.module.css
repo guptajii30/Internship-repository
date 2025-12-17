@@ -1,0 +1,510 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #000000;
+  z-index: 1000;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+}
+
+.navbar.scrolled {
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1.2rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.leftSection {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-left: auto;
+  margin-right: 2rem;
+}
+
+.coursesDropdown {
+  position: relative;
+}
+
+.coursesBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 2rem;
+  background: white;
+  color: #cc0000;
+  border: none;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.coursesBtn:hover {
+  background: #f8f8f8;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.coursesBtn:focus {
+  outline: 2px solid #cc0000;
+  outline-offset: 2px;
+}
+
+.coursesMenu {
+  position: fixed;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1000px;
+  max-width: calc(100vw - 2rem);
+  max-height: calc(100vh - 80px - 16px);
+  overflow-y: auto;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  z-index: 9999;
+  animation: slideDownFade 0.25s ease-out;
+}
+
+.menuContainer {
+  padding: 2rem;
+  display: flex;
+  gap: 2rem;
+}
+
+.categories {
+  flex: 0 0 220px;
+  background: #f9fafb;
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.categories ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.categories li {
+  padding: 0.75rem 0;
+  color: #6b7280;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: color 0.2s;
+  font-weight: 500;
+}
+
+.categories li:hover {
+  color: #111827;
+}
+
+.categories li.active {
+  color: #dc2626;
+  font-weight: 600;
+}
+
+.categories li span {
+  color: #9ca3af;
+  font-weight: 400;
+}
+
+.internships {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.internshipCard {
+  background: white;
+  padding: 1.25rem;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  text-align: center;
+}
+
+.internshipCard:hover {
+  border-color: #d1d5db;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.partner {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-align: center;
+}
+
+.title {
+  font-weight: 600;
+  color: #111827;
+  margin: 0.5rem 0 0.75rem 0;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.desc {
+  font-size: 0.875rem;
+  color: #6b7280;
+  line-height: 1.5;
+  margin-bottom: 0.75rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.badge {
+  display: inline-block;
+  background: #dbeafe;
+  color: #1d4ed8;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-top: 0.5rem;
+}
+
+.arrow {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: #6b7280;
+  font-size: 1.25rem;
+}
+
+.moreDropdown {
+  position: relative;
+}
+
+.moreBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1rem;
+  background: none;
+  color: white;
+  border: none;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.moreBtn:hover {
+  color: #fbbf24;
+}
+
+.moreBtn:focus {
+  outline: 2px solid #fbbf24;
+  outline-offset: 2px;
+}
+
+.moreBtn svg {
+  margin-left: 0.25rem;
+}
+
+.moreMenu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: black;
+  border-radius: 8px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  padding: 0.5rem 0;
+  min-width: 160px;
+  z-index: 1500;
+  animation: fadeInDown 0.2s ease;
+}
+
+.moreMenu a {
+  display: block;
+  padding: 0.75rem 1.5rem;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.moreMenu a:hover {
+  background: #333;
+  color: #cc0000;
+}
+
+.moreMenu a:focus {
+  outline: 2px solid white;
+  outline-offset: -2px;
+}
+
+.divider {
+  height: 1px;
+  background: white;
+  margin: 0.25rem 1rem;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: transparent;
+  backdrop-filter: blur(8px);
+  z-index: 999;
+  cursor: pointer;
+}
+
+.coursesBtn svg {
+  margin-left: 0.25rem;
+}
+
+.navLinks a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navLinks a:hover {
+  color: #fbbf24;
+}
+
+.navLinks a:focus {
+  outline: 2px solid #fbbf24;
+  outline-offset: 2px;
+}
+
+.navButtons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.freePracticeLink {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.freeText {
+  color: #10b981;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.btnSignIn {
+  padding: 0.7rem 2rem;
+  background: #cc0000;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 13.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.btnSignIn:hover {
+  background: #b30000;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(239, 68, 68, 0.4);
+}
+
+.btnSignIn:focus {
+  outline: 2px solid #cc0000;
+  outline-offset: 2px;
+}
+
+/* Banner */
+.banner {
+  position: fixed;
+  top: 75px;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(90deg, #fbbf24 0%, #f59e0b 50%, #e10600 100%);
+  z-index: 999;
+  padding: 1rem 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.bannerContent {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  position: relative;
+}
+
+.arrow {
+  color: #000;
+  font-size: 0.9rem;
+}
+
+.bannerText {
+  color: #000;
+  font-weight: 600;
+  font-size: 1rem;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  text-align: center;
+}
+
+.btnBookNow {
+  padding: 0.6rem 1.5rem;
+  background: #e10600;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 13.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  box-shadow: 0 4px 12px rgba(225, 6, 0, 0.3);
+  position: absolute;
+  right: 2rem;
+}
+
+.btnBookNow:hover {
+  background: #b30000;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(225, 6, 0, 0.4);
+}
+
+.btnBookNow:focus {
+  outline: 2px solid #e10600;
+  outline-offset: 2px;
+}
+
+.logo {
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+}
+
+.logoHighlight {
+  position: relative;
+  margin-left: 2px;
+}
+
+.logoHighlight::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 4px;
+  background-color: #e10600; /* AlmaBetter red underline */
+}
+
+@media (max-width: 1024px) {
+  .navLinks {
+    gap: 1.5rem;
+  }
+  
+  .navLinks a {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0.75rem 1rem;
+  }
+  
+  .navLinks {
+    display: none;
+  }
+
+  .navButtons {
+    gap: 0.5rem;
+  }
+  
+  .freeBadge {
+    padding: 0.3rem 0.75rem;
+    font-size: 0.75rem;
+  }
+
+  .btnSignIn {
+    padding: 0.5rem 1.5rem;
+    font-size: 0.85rem;
+  }
+  
+  .banner {
+    top: 50px;
+  }
+  
+  .bannerContent {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+  }
+  
+  .bannerText {
+    font-size: 0.85rem;
+    text-align: center;
+  }
+  
+  .btnBookNow {
+    margin-left: 0;
+    width: 100%;
+    position: static;
+  }
+}
