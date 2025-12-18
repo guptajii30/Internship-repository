@@ -197,16 +197,129 @@
   margin-top: 0.5rem;
 }
 
-.arrow {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  color: #6b7280;
-  font-size: 1.25rem;
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000000;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  animation: slideInLeft 0.3s ease;
 }
 
-.moreDropdown {
-  position: relative;
+@keyframes slideInLeft {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.mobileMenuHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #333;
+}
+
+.mobileLogo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobileNav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 2rem;
+  overflow-y: auto;
+}
+
+.mobileMenuItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1rem 0;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  border-bottom: 1px solid #333;
+}
+
+.mobileMenuItem:last-child {
+  border-bottom: none;
+}
+
+.chevron {
+  transition: transform 0.3s ease;
+}
+
+.rotated {
+  transform: rotate(180deg);
+}
+
+.mobileSubmenu {
+  background: #111;
+  border-radius: 8px;
+  margin: 0.5rem 0 1rem 0;
+  overflow: hidden;
+}
+
+.mobileSubItem {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: #ccc;
+  text-decoration: none;
+  font-size: 0.9rem;
+  border-bottom: 1px solid #333;
+  transition: background 0.2s;
+}
+
+.mobileSubItem:hover {
+  background: #222;
+  color: white;
+}
+
+.mobileSubItem:last-child {
+  border-bottom: none;
+}
+
+.mobileSignIn {
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background: #e10600;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
 }
 
 .moreBtn {
@@ -425,19 +538,27 @@
   box-shadow: 0 6px 16px rgba(225, 6, 0, 0.4);
 }
 
-.btnBookNow:focus {
-  outline: 2px solid #e10600;
-  outline-offset: 2px;
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 1rem;
 }
 
-.logo {
-  font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
-  font-size: 30px;
-  font-weight: 800;
-  color: #ffffff;
-  display: inline-flex;
-  align-items: center;
+.hamburger span {
+  width: 100%;
+  height: 3px;
+  background: white;
+  transition: all 0.3s ease;
+  border-radius: 2px;
 }
+
 
 .logoHighlight {
   position: relative;
@@ -464,7 +585,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1023px) {
   .container {
     padding: 0.75rem 1rem;
   }
@@ -506,5 +627,21 @@
     margin-left: 0;
     width: 100%;
     position: static;
+  }
+  
+  .coursesDropdown {
+    display: none;
+  }
+  
+  .hamburger {
+    display: flex;
+  }
+  
+  .leftSection {
+    gap: 1rem;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
   }
 }

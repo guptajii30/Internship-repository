@@ -85,7 +85,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1023px) {
   .infoBar {
     flex-direction: column;
     padding: 1rem;

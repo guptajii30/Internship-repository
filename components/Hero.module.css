@@ -160,7 +160,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1023px) {
   .headline {
     font-size: 2rem;
   }
@@ -195,5 +195,43 @@
 
   .statText {
     text-align: center;
+  }
+}
+
+/* Mobile Styles for Hero */
+@media (max-width: 1023px) {
+  .hero {
+    padding-top: 120px;
+    min-height: 90vh;
+  }
+
+  .container {
+    padding: 2rem 1rem;
+  }
+
+  .headline {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    max-width: none;
+  }
+
+  .subheadline {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    max-width: none;
+  }
+
+  .primaryActions {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .btnPrimary {
+    width: 100%;
+    padding: 1.25rem 2rem;
+  }
+
+  .secondaryContent {
+    margin-top: 1.5rem;
   }
 }

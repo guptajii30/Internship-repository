@@ -55,7 +55,7 @@
 }
 
 /* Mobile responsive */
-@media (max-width: 768px) {
+@media (max-width: 1023px) {
   .floatingButtons {
     right: 1rem;
     bottom: 1rem;
