@@ -1,3 +1,33 @@
+/* --- Universal Responsive Enhancements --- */
+@media (max-width: 600px) {
+  body {
+    font-size: 15px;
+  }
+  h1 {
+    font-size: 1.5rem;
+  }
+  h2 {
+    font-size: 1.2rem;
+  }
+  h3 {
+    font-size: 1.05rem;
+  }
+  .section-spacing {
+    padding: 1rem 0;
+  }
+  .btn-primary, .btn-secondary {
+    font-size: 0.85rem;
+    padding: 0.6rem 1rem;
+  }
+}
+@media (max-width: 375px) {
+  body {
+    font-size: 13px;
+  }
+  h1 {
+    font-size: 1.1rem;
+  }
+}
 /* Global Reset and Base Styles */
 html, body {
   margin: 0;
