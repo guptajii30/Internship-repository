@@ -1,3 +1,6 @@
+*:focus-visible {
+  outline: none;
+}
 /* Global Reset and Base Styles */
 html, body {
   margin: 0;

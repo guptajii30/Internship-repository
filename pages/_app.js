@@ -1,9 +1,12 @@
-import '../styles/global.css';
+import Head from "next/head";
 
 export default function App({ Component, pageProps }) {
   return (
-    <main>
+    <>
+      <Head>
+        <title>LearnBetter – Masters in Computer Science</title>
+      </Head>
       <Component {...pageProps} />
-    </main>
+    </>
   );
 }
