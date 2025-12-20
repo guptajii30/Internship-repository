@@ -1,8 +1,8 @@
+import styles from "./Navbar.module.css";
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import styles from "./Navbar.module.css";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -14,6 +14,8 @@ export default function Navbar() {
   const [mobileMoreOpen, setMobileMoreOpen] = useState(false);
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const [isFading, setIsFading] = useState(false);
+  // Sign In Dropdown state (click-based)
+  const [isSignInOpen, setIsSignInOpen] = useState(false);
 
   const bannerTexts = [
     "▶  Book a live demo session ⏱️ Next cohort starts on 26th Dec, 2025",
@@ -74,7 +76,7 @@ export default function Navbar() {
       document.removeEventListener("keydown", handleKeyDown);
       document.body.style.overflow = "";
     };
-  }, [showMore, showCourses, styles.coursesDropdown, styles.moreDropdown]);
+  }, [showMore, showCourses]);
 
   const handleMoreClick = (e) => {
     e.preventDefault();
@@ -84,6 +86,21 @@ export default function Navbar() {
   const handleOverlayClick = () => {
     setShowMore(false);
   };
+
+  // Close dropdowns on outside click
+  // Dropdown close on outside click (Sign In only)
+  const signInDropdownRef = useRef(null);
+  useEffect(() => {
+    function handleClick(e) {
+      if (isSignInOpen && signInDropdownRef.current && !signInDropdownRef.current.contains(e.target)) {
+        setIsSignInOpen(false);
+      }
+    }
+    if (isSignInOpen) {
+      document.addEventListener("mousedown", handleClick);
+    }
+    return () => document.removeEventListener("mousedown", handleClick);
+  });
 
   return (
     <>
@@ -225,8 +242,37 @@ export default function Navbar() {
             </div>
           </nav>
           
-          <div className={styles.navButtons}>
-            <a href="/auth/signin" target="_blank" rel="noopener noreferrer" className={styles.btnSignIn} aria-label="Sign in to your account">SIGN IN</a>
+          {/* Sign In Dropdown Button - hover logic on wrapper */}
+          <div
+            className={styles.signinWrapper}
+            onMouseEnter={() => {
+              if (window.innerWidth > 1024) setIsSignInOpen(true);
+            }}
+            style={{ position: 'relative', height: '100%' }}
+          >
+            <button
+              className={styles.signInDropdownBtn}
+              aria-haspopup="true"
+              aria-expanded={isSignInOpen ? "true" : "false"}
+              onClick={() => setIsSignInOpen((v) => !v)}
+            >
+              Sign In <span style={{fontSize: '1em', marginLeft: 4}}>▾</span>
+            </button>
+            {isSignInOpen && (
+              <div
+                className={styles.signInDropdown}
+                style={{ pointerEvents: 'auto', zIndex: 2000, position: 'absolute', top: '100%', left: 0 }}
+              >
+                <a
+                  href="/auth/signin/student"
+                  className={styles.signInDropdownItem}
+                >Student Sign In</a>
+                <a
+                  href="/auth/signin/mentor"
+                  className={styles.signInDropdownItem}
+                >Mentor Sign In</a>
+              </div>
+            )}
           </div>
           
           <button className={styles.hamburger} onClick={() => setMobileMenuOpen(!mobileMenuOpen)} aria-label="Toggle mobile menu">
@@ -243,7 +289,6 @@ export default function Navbar() {
             <h1 className={styles.mobileLogo}>Learn<span className={styles.logoHighlight}>Better</span></h1>
             <button className={styles.closeBtn} onClick={() => setMobileMenuOpen(false)} aria-label="Close menu">×</button>
           </div>
-          
           <nav className={styles.mobileNav}>
             <button className={styles.mobileMenuItem} onClick={() => setMobileCoursesOpen(!mobileCoursesOpen)}>
               Courses
@@ -259,12 +304,10 @@ export default function Navbar() {
                 <a href="#web" className={styles.mobileSubItem}>Web & Software Internships</a>
               </div>
             )}
-            
             <a href="#placements" className={styles.mobileMenuItem}>Placements</a>
             <a href="#masterclass" className={styles.mobileMenuItem}>Masterclass</a>
             <a href="#practice" className={styles.mobileMenuItem}>FREE Practice</a>
             <a href="#hire" className={styles.mobileMenuItem}>Hire From Us</a>
-            
             <button className={styles.mobileMenuItem} onClick={() => setMobileMoreOpen(!mobileMoreOpen)}>
               More
               <svg className={`${styles.chevron} ${mobileMoreOpen ? styles.rotated : ''}`} width="12" height="8" viewBox="0 0 12 8" fill="currentColor">
@@ -278,8 +321,23 @@ export default function Navbar() {
                 <a href="#about" className={styles.mobileSubItem}>About Us</a>
               </div>
             )}
-            
-            <a href="/auth/signin" target="_blank" rel="noopener noreferrer" className={styles.mobileSignIn}>SIGN IN</a>
+            {/* Mobile Sign In Dropdown */}
+            <div className={styles.mobileSignInDropdownWrapper}>
+              <button
+                className={styles.mobileSignInDropdownBtn}
+                aria-haspopup="true"
+                aria-expanded={showMobileSignInDropdown ? "true" : "false"}
+                onClick={() => setShowMobileSignInDropdown((v) => !v)}
+              >
+                Sign In <span style={{fontSize: '1em', marginLeft: 4}}>▾</span>
+              </button>
+              {showMobileSignInDropdown && (
+                <div className={styles.mobileSignInDropdown}>
+                  <a href="/auth/signin/student" className={styles.mobileSignInDropdownItem}>Student Sign In</a>
+                  <a href="/auth/signin/mentor" className={styles.mobileSignInDropdownItem}>Mentor Sign In</a>
+                </div>
+              )}
+            </div>
           </nav>
         </div>
       )}

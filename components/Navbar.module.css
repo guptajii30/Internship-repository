@@ -1,3 +1,163 @@
+/* Wrapper for Sign In button and dropdown */
+.signinWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+/* Sign In Dropdown Styles */
+.signInDropdownWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+
+.signInDropdownBtn {
+  background: #e10600;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7rem 1.5rem;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  box-shadow: 0 4px 12px rgba(225, 6, 0, 0.3);
+  outline: none;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.signInDropdownBtn:hover,
+.signInDropdownBtn:focus {
+  background: #b30000;
+}
+
+.signInDropdown {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  min-width: 180px;
+  background: #111;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+  display: flex;
+  flex-direction: column;
+  z-index: 2000;
+  padding: 6px 0;
+  animation: fadeInDown 0.18s ease-out;
+}
+
+.signInDropdownItem {
+  color: #fff;
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 12px 20px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.18s;
+  text-decoration: none;
+  min-width: 160px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+.signInDropdownItem:hover,
+.signInDropdownItem:focus {
+  background: #e50914;
+  color: #fff;
+}
+
+/* Mobile Sign In Dropdown */
+.mobileSignInDropdownWrapper {
+  width: 100%;
+  margin-top: 1.5rem;
+  position: relative;
+}
+
+
+.mobileSignInDropdownBtn {
+  width: 100%;
+  background: #e10600;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.9rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  box-shadow: 0 4px 12px rgba(225, 6, 0, 0.3);
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 44px;
+}
+
+.mobileSignInDropdownBtn:hover,
+.mobileSignInDropdownBtn:focus {
+  background: #b30000;
+}
+
+.mobileSignInDropdown {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  width: 100%;
+  background: #111;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+  display: flex;
+  flex-direction: column;
+  z-index: 2000;
+  padding: 6px 0;
+  animation: fadeInDown 0.18s ease-out;
+}
+
+.mobileSignInDropdownItem {
+  color: #fff;
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.18s;
+  text-decoration: none;
+  min-width: 160px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+.mobileSignInDropdownItem:hover,
+.mobileSignInDropdownItem:focus {
+  background: #e50914;
+  color: #fff;
+}
+
+@media (max-width: 1024px) {
+  .signInDropdownWrapper {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .mobileSignInDropdownWrapper {
+    margin-top: 1.2rem;
+  }
+}
 .navbar {
   position: fixed;
   top: 0;
